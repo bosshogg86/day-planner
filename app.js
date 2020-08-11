@@ -1,7 +1,10 @@
 $(document).ready(function () {
-    const $nine = $('#nine');
+    const $textArea = $('.textarea');
     const m = moment();
-    
+
+    // Array of time-blocks
+    const $timeBlock = $('.time-block')
+    console.log($timeBlock);
 
     // Display Date
     let date = moment().format('dddd, MMMM Do');
@@ -11,6 +14,15 @@ $(document).ready(function () {
     let currentTime = m.hours();
     console.log(currentTime);
 
-    console.log($nine.value);
+    for (i = 0; i < $timeBlock.length; i++) {
+        if ((currentTime - 9) === i) {
+        $textArea.addClass('present');
+        } else if ((currentTime - 9) > i) {
+        console.log('past true');
+        $textArea.addClass('past');
+        } else if ((currentTime - 9) < i) {
+        $textArea.addClass('future');
+        } console.log(currentTime);
+    }
 
-});
+}); 
