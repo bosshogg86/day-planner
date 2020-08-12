@@ -2,9 +2,9 @@ $(document).ready(function () {
   const $textArea = $(".textarea");
   const $saveBtn = $(".saveBtn");
   const m = moment();
-  let userInput = $textArea.text();
+//   let userInput = $textArea.text();
   let userInputs = [];
-  console.log(userInput);
+
   // Array of time-blocks
   const $timeBlock = $(".time-block");
 
@@ -27,16 +27,16 @@ $(document).ready(function () {
   });
 
   // 
-  $textArea.on("keyup change", function() {
-    $textArea.text(this.value);
- });
+//   $textArea.on("keyup change", function() {
+//     $textArea.text(this.value);
+//  });
 
 //   $saveBtn.on("click", function() {
 //     localStorage.setItem("userInputs", JSON.stringify($(".textarea")));
 //   });
 
-  $('button').on('click', function() {
-    localStorage.setItem("inputvalue", $textArea.val());
-    $textArea.text(localStorage.getItem("inputvalue"));
+  $saveBtn.on('click', function () {
+    userInputs.push($this.$textArea.val());
+    localStorage.setItem("item", JSON.stringify(userInputs));
 });
 });
