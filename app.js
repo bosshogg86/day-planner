@@ -6,6 +6,9 @@ $(document).ready(function () {
   // Call moment
   moment();
 
+  // Check local storage
+  init();
+
   // Display Date
   let date = moment().format("dddd, MMMM Do");
   $("#currentDay").text(date);
@@ -24,11 +27,30 @@ $(document).ready(function () {
     }
   });
 
-  // On btn click stores text input
+  // Stores text input
   $(".time-block").each(function () {
     $(".saveBtn").on("click", function () {
+      
       userInputs.push($(this).siblings(".textarea").val());
-      localStorage.setItem("input", JSON.stringify(userInputs));
+      localStorage.setItem("userInputs", JSON.stringify(userInputs));
     });
   });
+
+  function init() {
+    if (localStorage.getItem("userInputs")) {
+      const savedInputs = JSON.parse(localStorage.getItem("userInputs"));
+      userInputs.push(...savedInputs);
+      renderInputs();
+    }
+  }
+
+  function renderInputs() {
+    for (let i = 0; i < userInputs.length; i++) {
+      let userInput = userInputs[i];
+      $(".textarea").text(userInput);
+      $(".textarea").attr("data-index", i);
+      console.log(userInput);
+    }
+  }
+
 });
