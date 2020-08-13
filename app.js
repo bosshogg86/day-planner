@@ -38,9 +38,8 @@ $(document).ready(function () {
   function renderInputs() {
     for (let i = 0; i < userInputs.length; i++) {
       const userInput = userInputs[i];
-      $(".textarea").text(userInput);
-      $(".textarea").attr("data-index", i);
       console.log(userInput);
+      $("#" + i).val(userInput);
     }
   }
 
