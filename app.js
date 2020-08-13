@@ -2,7 +2,7 @@ $(document).ready(function () {
   const $textArea = $(".textarea");
   const $saveBtn = $(".saveBtn");
   const m = moment();
-  
+
   // Storage array
   let userInputs = [];
 
@@ -10,7 +10,7 @@ $(document).ready(function () {
   let date = moment().format("dddd, MMMM Do");
   $("#currentDay").text(date);
 
-  // Current time
+  // Grabs current time
   let currentTime = m.hours();
 
   // Checks if time-block is past, present, future
@@ -25,10 +25,10 @@ $(document).ready(function () {
   });
 
   // On btn click stores text input
-  $(".time-blocks").each(function () {
+  $(".time-block").each(function () {
     $($saveBtn).on("click", function () {
       userInputs.push($(this).siblings(".textarea").val());
-      localStorage.setItem("item", JSON.stringify(userInputs));
+      localStorage.setItem("input", JSON.stringify(userInputs));
     });
   });
 });
