@@ -29,12 +29,11 @@ $(document).ready(function () {
   renderInputs();
 
   function renderInputs() {
-      // $(".textarea").empty();
-      for (let i = 9; i < 18; i++) {
-        value = localStorage.getItem(i);
-        $("#hour-" + i).text(value);
-        console.log(value);
-      }
+    for (let i = 9; i < 18; i++) {
+      value = localStorage.getItem(i);
+      $("#hour-" + i).val(value);
+      console.log(value);
+    }
   }
 
   // Stores text input
