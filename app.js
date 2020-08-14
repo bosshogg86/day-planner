@@ -26,22 +26,17 @@ $(document).ready(function () {
   });
 
   // Check local storage
-  init();
+  renderInputs();
 
-  function init() {
+  function renderInputs() {
     if (localStorage.getItem(time)) {
       value = localStorage.getItem(time);
       console.log(value);
-      renderInputs();
-    }
-  }
-
-  // Render stored
-  function renderInputs() {
-    $(".textarea").empty();
-    for (let i = 0; i < userInputs.length; i++) {
-      $(".textarea").text(userInputs[i]);
-      console.log(userInputs[i]);
+      $(".textarea").empty();
+      for (let i = 0; i < userInputs.length; i++) {
+        $(".textarea").text(userInputs[i]);
+        console.log(userInputs[i]);
+      }
     }
   }
 
@@ -50,6 +45,6 @@ $(document).ready(function () {
     value = $(this).siblings(".textarea").val().trim();
     time = $(this).siblings(".hour").attr("id");
     localStorage.setItem(time, value);
-    init();
+    renderInputs();
   });
 });
