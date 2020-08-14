@@ -34,7 +34,7 @@ $(document).ready(function () {
       renderInputs();
     }
   }
-
+  // Render stored
   function renderInputs() {
     for (let i = 0; i < userInputs.length; i++) {
       const userInput = userInputs[i];
