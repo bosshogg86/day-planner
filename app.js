@@ -1,11 +1,9 @@
 $(document).ready(function () {
-  
   // Declare storage array
   let userInputs = [];
-  let $value;
-    let $time;
-  // let $value = $(this).siblings(".textarea").val();
-  // let $time = $(this).siblings(".hour").attr("id");
+  let value;
+  let time;
+
   // Call moment
   moment();
 
@@ -15,7 +13,7 @@ $(document).ready(function () {
 
   // Grabs current time
   let currentTime = moment().hours();
-  
+
   // Checks if time-block is past, present, future
   $(".textarea").each(function (i) {
     if (currentTime === i + 9) {
@@ -29,29 +27,29 @@ $(document).ready(function () {
 
   // Check local storage
   init();
-  
+
   function init() {
-    if (localStorage.getItem($time)) {
-      const savedInputs = localStorage.getItem($time, $value);
-      userInputs.push(...savedInputs);
+    if (localStorage.getItem(time)) {
+      value = localStorage.getItem(time);
+      console.log(value);
       renderInputs();
     }
   }
+
   // Render stored
   function renderInputs() {
-    for (let i = 9; i < 18; i++) {
-      let userInput = $value;
-      console.log($value);
-      console.log(userInput);
+    $(".textarea").empty();
+    for (let i = 0; i < userInputs.length; i++) {
+      $(".textarea").text(userInputs[i]);
+      console.log(userInputs[i]);
     }
   }
 
   // Stores text input
   $(".saveBtn").on("click", function () {
-    let $value = $(this).siblings(".textarea").val().trim();
-    let $time = $(this).siblings(".hour").attr("id");
-    localStorage.setItem($time, $value);
+    value = $(this).siblings(".textarea").val().trim();
+    time = $(this).siblings(".hour").attr("id");
+    localStorage.setItem(time, value);
+    init();
   });
 });
-
-
