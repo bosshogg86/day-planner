@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // Declare storage array
-  let userInputs = [];
+  // let userInputs = [];
   let value;
   let time;
 
@@ -32,10 +32,10 @@ $(document).ready(function () {
     if (localStorage.getItem(time)) {
       value = localStorage.getItem(time);
       console.log(value);
-      $(".textarea").empty();
-      for (let i = 0; i < userInputs.length; i++) {
-        $(".textarea").text(userInputs[i]);
-        console.log(userInputs[i]);
+      // $(".textarea").empty();
+      for (let i = 9; i < 18; i++) {
+        $("#hour-" + i).text(value);
+        console.log(value);
       }
     }
   }
