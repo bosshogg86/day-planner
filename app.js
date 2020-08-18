@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   // Grabs current time
   let currentTime = moment().hours();
-
+  
   // Checks if time-block is past, present, future
   $(".textarea").each(function (i) {
     if (currentTime === i + 9) {
@@ -32,7 +32,6 @@ $(document).ready(function () {
     for (let i = 9; i < 18; i++) {
       value = localStorage.getItem(i);
       $("#hour-" + i).val(value);
-      console.log(value);
     }
   }
 
